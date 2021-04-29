@@ -1,7 +1,16 @@
 package br.com.alura.bytebank
 
-import br.com.alura.bytebank.teste.testaAny
+import java.lang.ArithmeticException
 
 fun main() {
-    testaAny()
+    try {
+        println("Rodou aqui")
+        //10/0
+        10/2
+    } catch (e: ArithmeticException) {
+        println("ATENÇÃO: ArithmeticException foi pegada.")
+    }
+    finally {
+        println("Isso daqui rodou mesmo assim!")
+    }
 }
