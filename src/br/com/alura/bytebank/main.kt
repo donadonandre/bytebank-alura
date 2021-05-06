@@ -1,12 +1,12 @@
 package br.com.alura.bytebank
 
 fun main() {
-//    testaFuncaoReferencia()
-//    testaFuncaoClasse()
+    testaFuncaoReferencia()
+    testaFuncaoClasse()
 
     // Fica vinculada a variável e não dá pra reaproveitar a lógica.
-    testaFuncaoLambda()
-    testaFuncaoAnonima()
+//    testaFuncaoLambda()
+//    testaFuncaoAnonima()
 }
 
 fun testaFuncaoAnonima() {
@@ -32,12 +32,12 @@ fun testaFuncaoClasse() {
 }
 
 fun testaFuncaoReferencia() {
-    val minhaFuncao: () -> Unit = ::teste
-    println(minhaFuncao())
+    val minhaFuncao: (Int, Int) -> Int = ::soma
+    println(minhaFuncao(5, 10))
 }
 
-fun teste() {
-    println("executa teste")
+fun soma(a: Int, b: Int): Int {
+    return a + b
 }
 
 class Teste : () -> Unit {
