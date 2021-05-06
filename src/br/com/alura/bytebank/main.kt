@@ -13,7 +13,5 @@ fun main() {
         .let { endereco ->
             "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
         }
-        .let { enderecoMaiusculoLet ->
-            println(enderecoMaiusculoLet)
-        }
+        .let(::println)
 }
