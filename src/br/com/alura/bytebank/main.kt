@@ -7,6 +7,23 @@ fun main() {
     // Fica vinculada a variável e não dá pra reaproveitar a lógica.
     testaFuncaoLambda()
     testaFuncaoAnonima()
+
+
+    val calculaBonificacao: (salario: Double) -> Double = lambda@{ salario ->
+        if (salario > 1000.0) {
+            return@lambda salario + 50.0
+        }
+        salario + 100.0
+    }
+    println(calculaBonificacao(1000.0))
+
+    val calculaBonificacaoAnonima: (salario: Double) -> Double = fun(salario): Double {
+        if (salario > 1000.0) {
+            return salario + 50.0
+        }
+        return salario + 100.0
+    }
+    println(calculaBonificacaoAnonima(1000.0))
 }
 
 fun testaFuncaoAnonima() {
