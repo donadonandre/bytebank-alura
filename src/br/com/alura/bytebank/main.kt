@@ -8,34 +8,40 @@ fun main() {
 //    val endereco = Endereco(logradouro = "Rua Maestro", numero = 345)
 //    val enderecoMaiusculo = "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
 //    println(enderecoMaiusculo)
-//
-//    // OU
-//
+
 //    Endereco(logradouro = "Rua Maestro", numero = 345)
 //        .let { endereco ->
 //            "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
 //        }
 //        .let(::println)
-//
-    listOf(
-        Endereco(),
-        Endereco(complemento = "apartamento"),
-        Endereco(complemento = "casa")
-    )
-        .filter(predicate = { endereco -> endereco.complemento.isNotEmpty() })
+
+    // Ou com Scope Functions
+
+    Endereco(logradouro = "Rua Maestro", numero = 345)
+        .apply {
+            "$logradouro, $numero".toUpperCase()
+        }
         .let(::println)
 
-    //println(soma(1, 5))
-    soma(1, 5, resultado = (::println))
-
-    val autenticavel = object : Autenticavel {
-        val senha = 1234
-        override fun autentica(senha: Int) = this.senha == senha
-    }
-
-    SistemaInterno().entra(autenticavel, 1234, autenticado = {
-        println("Pode pagar")
-    })
+//    listOf(
+//        Endereco(),
+//        Endereco(complemento = "apartamento"),
+//        Endereco(complemento = "casa")
+//    )
+//        .filter(predicate = { endereco -> endereco.complemento.isNotEmpty() })
+//        .let(::println)
+//
+//    //println(soma(1, 5))
+//    soma(1, 5, resultado = (::println))
+//
+//    val autenticavel = object : Autenticavel {
+//        val senha = 1234
+//        override fun autentica(senha: Int) = this.senha == senha
+//    }
+//
+//    SistemaInterno().entra(autenticavel, 1234, autenticado = {
+//        println("Pode pagar")
+//    })
 }
 
 fun soma(a: Int, b: Int, resultado:(Int) -> Unit) {
