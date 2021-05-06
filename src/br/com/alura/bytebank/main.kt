@@ -6,6 +6,9 @@ fun main() {
 
     val minhaFuncaoClasse: () -> Unit = Teste()
     println(minhaFuncaoClasse())
+
+    val outroTeste = OutroTeste()
+    println(outroTeste())
 }
 
 fun teste() {
@@ -15,5 +18,11 @@ fun teste() {
 class Teste : () -> Unit {
     override fun invoke() {
         println("Executa Invoke do Teste")
+    }
+}
+
+class OutroTeste {
+    operator fun invoke() {
+        println("Outro Invoke aqui")
     }
 }
