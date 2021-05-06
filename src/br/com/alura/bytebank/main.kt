@@ -18,7 +18,7 @@ fun main() {
     // Ou com Scope Functions
 
     Endereco(logradouro = "Rua Maestro", numero = 345)
-        .apply {
+        .run {
             "$logradouro, $numero".toUpperCase()
             // quem foi devolvido aqui foi o: this e não a linha acima
         }
