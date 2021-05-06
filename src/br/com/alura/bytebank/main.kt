@@ -20,8 +20,12 @@ fun main() {
     Endereco(logradouro = "Rua Maestro", numero = 345)
         .apply {
             "$logradouro, $numero".toUpperCase()
+            // quem foi devolvido aqui foi o: this e não a linha acima
         }
-        .let(::println)
+        .let {enderecoEmMaiusculo: String ->
+            println(enderecoEmMaiusculo)
+        }
+        // Esse exemplo está com erro porque o apply retorna o endereço e não a string
 
     // ***** Está funcionando mas não aplicou o maiúsculo, porque é um objeto de contexto
 
