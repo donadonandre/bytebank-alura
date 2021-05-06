@@ -1,11 +1,11 @@
 package br.com.alura.bytebank
 
-var numero = 10
-
 fun main() {
-    println(soma(1,5))
-    numero = 3
-    println(soma(1,5))
+    val minhaFuncao: () -> Unit = ::teste
+    println(minhaFuncao())
 }
 
-fun soma(a: Int, b: Int): Int = a + b + numero
+fun teste() {
+    println("executa teste")
+}
+
