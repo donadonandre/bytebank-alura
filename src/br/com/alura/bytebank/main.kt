@@ -17,17 +17,28 @@ fun main() {
 
     // Ou com Scope Functions
 
-    Endereco(logradouro = "Rua Maestro", numero = 345)
-        .run {
+//    Endereco(logradouro = "Rua Maestro", numero = 345)
+//        .run {
+//            "$logradouro, $numero".toUpperCase()
+//            // quem foi devolvido aqui foi o: this e não a linha acima
+//        }
+//        .let {enderecoEmMaiusculo: String ->
+//            println(enderecoEmMaiusculo)
+//        }
+        // Esse exemplo está com erro porque o apply retorna o endereço e não a string
+
+    // ***** Está funcionando mas não aplicou o maiúsculo, porque é um objeto de contexto
+
+    // Utilizando WITH
+    val endereco = Endereco(logradouro = "Rua Maestro", numero = 345)
+
+    with(endereco) {
             "$logradouro, $numero".toUpperCase()
             // quem foi devolvido aqui foi o: this e não a linha acima
         }
         .let {enderecoEmMaiusculo: String ->
             println(enderecoEmMaiusculo)
         }
-        // Esse exemplo está com erro porque o apply retorna o endereço e não a string
-
-    // ***** Está funcionando mas não aplicou o maiúsculo, porque é um objeto de contexto
 
 //    listOf(
 //        Endereco(),
