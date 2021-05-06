@@ -30,7 +30,10 @@ fun main() {
     // ***** Está funcionando mas não aplicou o maiúsculo, porque é um objeto de contexto
 
     // Utilizando WITH
-    val endereco = Endereco(logradouro = "Rua Maestro", numero = 345)
+    val endereco = Endereco().apply {
+        logradouro = "Rua Maestro"
+        numero = 345
+    }
 
     with(endereco) {
             "$logradouro, $numero".toUpperCase()
