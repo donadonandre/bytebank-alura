@@ -17,27 +17,25 @@ fun main() {
 //        }
 //        .let(::println)
 //
-//    listOf(
-//        Endereco(),
-//        Endereco(complemento = "apartamento"),
-//        Endereco(complemento = "casa")
-//    )
-//        .filter { endereco -> endereco.complemento.isNotEmpty() }
-//        .let(::println)
+    listOf(
+        Endereco(),
+        Endereco(complemento = "apartamento"),
+        Endereco(complemento = "casa")
+    )
+        .filter(predicate = { endereco -> endereco.complemento.isNotEmpty() })
+        .let(::println)
 
     //println(soma(1, 5))
-//    soma(1, 5){ execucao ->
-//        println(execucao)
-//    }
+    soma(1, 5, resultado = (::println))
 
     val autenticavel = object : Autenticavel {
         val senha = 1234
         override fun autentica(senha: Int) = this.senha == senha
     }
 
-    SistemaInterno().entra(autenticavel, 1234) {
+    SistemaInterno().entra(autenticavel, 1234, autenticado = {
         println("Pode pagar")
-    }
+    })
 }
 
 fun soma(a: Int, b: Int, resultado:(Int) -> Unit) {
