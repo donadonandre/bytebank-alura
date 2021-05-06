@@ -14,4 +14,12 @@ fun main() {
             "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
         }
         .let(::println)
+
+    listOf(
+        Endereco(),
+        Endereco(complemento = "apartamento"),
+        Endereco(complemento = "casa")
+    )
+        .filter { endereco -> endereco.complemento.isNotEmpty() }
+        .let(::println)
 }
