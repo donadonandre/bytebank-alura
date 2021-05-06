@@ -22,4 +22,10 @@ fun main() {
     )
         .filter { endereco -> endereco.complemento.isNotEmpty() }
         .let(::println)
+
+    println(soma(1, 5))
+}
+
+fun soma(a: Int, b: Int): Int {
+    return a+b
 }
