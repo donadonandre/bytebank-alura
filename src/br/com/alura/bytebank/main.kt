@@ -24,8 +24,8 @@ fun testaFuncaoLambda() {
 }
 
 fun testaFuncaoClasse() {
-    val minhaFuncaoClasse: () -> Unit = Teste()
-    println(minhaFuncaoClasse())
+    val minhaFuncaoClasse: (Int, Int) -> Int = Soma()
+    println(minhaFuncaoClasse(12, 10))
 
     val outroTeste = OutroTeste()
     println(outroTeste())
@@ -40,10 +40,8 @@ fun soma(a: Int, b: Int): Int {
     return a + b
 }
 
-class Teste : () -> Unit {
-    override fun invoke() {
-        println("Executa Invoke do Teste")
-    }
+class Soma : (Int, Int) -> Int {
+    override fun invoke(p1: Int, p2: Int): Int = p1 + p2
 }
 
 class OutroTeste {
