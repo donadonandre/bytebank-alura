@@ -23,6 +23,8 @@ fun main() {
         }
         .let(::println)
 
+    // ***** Está funcionando mas não aplicou o maiúsculo, porque é um objeto de contexto
+
 //    listOf(
 //        Endereco(),
 //        Endereco(complemento = "apartamento"),
