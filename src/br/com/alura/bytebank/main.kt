@@ -9,9 +9,11 @@ fun main() {
 
     // OU
 
-    val enderecoMaiusculoLet = Endereco(logradouro = "Rua Maestro", numero = 345)
+    Endereco(logradouro = "Rua Maestro", numero = 345)
         .let { endereco ->
             "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
         }
-    println(enderecoMaiusculoLet)
+        .let { enderecoMaiusculoLet ->
+            println(enderecoMaiusculoLet)
+        }
 }
