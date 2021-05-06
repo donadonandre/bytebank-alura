@@ -1,26 +1,34 @@
 package br.com.alura.bytebank
 
 fun main() {
-    testaFuncaoReferencia()
-    testaFuncaoClasse()
+//    testaFuncaoReferencia()
+//    testaFuncaoClasse()
 
     // Fica vinculada a variável e não dá pra reaproveitar a lógica.
-//    testaFuncaoLambda()
-//    testaFuncaoAnonima()
+    testaFuncaoLambda()
+    testaFuncaoAnonima()
 }
 
 fun testaFuncaoAnonima() {
-    val minhaFuncaoAnonima: () -> Unit = fun() {
-        println("Executa como anonima")
+//    val minhaFuncaoAnonima: (Int, Int) -> Int = fun(a, b) : Int {
+//        return a + b
+//    }
+//    ou
+    val minhaFuncaoAnonima = fun(a: Int, b: Int) : Int {
+        return a + b
     }
-    println(minhaFuncaoAnonima())
+    println(minhaFuncaoAnonima(20, 9))
 }
 
 fun testaFuncaoLambda() {
-    val minhaFuncaoLambda: () -> Unit = {
-        println("Executa como lambda")
+//    val minhaFuncaoLambda: (Int, Int) -> Int = { a, b ->
+//        a + b
+//    }
+//    ou
+    val minhaFuncaoLambda = { a: Int, b: Int ->
+        a + b
     }
-    println(minhaFuncaoLambda())
+    println(minhaFuncaoLambda(15, 10))
 }
 
 fun testaFuncaoClasse() {
