@@ -9,3 +9,4 @@ fun soma(a: Int, b: Int, resultado:(Int) -> Unit) {
     resultado(a+b)
     println("Soma feita")
 }
+
