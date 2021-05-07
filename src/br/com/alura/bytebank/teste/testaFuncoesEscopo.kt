@@ -1,6 +1,8 @@
 package br.com.alura.bytebank.teste
 
+import br.com.alura.bytebank.modelo.Autenticavel
 import br.com.alura.bytebank.modelo.Endereco
+import br.com.alura.bytebank.modelo.SistemaInterno
 
 fun testaFuncoesEscopo() {
     //    val endereco = Endereco(logradouro = "Rua Maestro", numero = 345)
@@ -52,12 +54,17 @@ fun testaFuncoesEscopo() {
 //        .let(::println)
 //
 //
-//    val autenticavel = object : Autenticavel {
-//        val senha = 1234
-//        override fun autentica(senha: Int) = this.senha == senha
-//    }
-//
-//    SistemaInterno().entra(autenticavel, 1234, autenticado = {
-//        println("Pode pagar")
-//    })
+    val autenticavel = object : Autenticavel {
+        val senha = 1234
+        override fun autentica(senha: Int) = this.senha == senha
+    }
+
+    val sistemaInterno = SistemaInterno()
+    sistemaInterno.entra(autenticavel, 1234, autenticado = {
+        println("Pode pagar")
+    })
+
+    sistemaInterno.entraReceiver(autenticavel, 1234, autenticado = {
+        pagamento()
+    })
 }

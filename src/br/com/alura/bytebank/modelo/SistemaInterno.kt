@@ -11,4 +11,18 @@ class SistemaInterno {
         }
     }
 
+    fun entraReceiver(admin: Autenticavel, senha: Int, autenticado: SistemaInterno.()->Unit = {}){
+        if(admin.autentica(senha)){
+            println("Bem vindo ao Bytebank")
+            this.autenticado()
+            // ou autentica(this)
+        } else {
+            println("Falha na autenticação")
+        }
+    }
+
+    fun pagamento() {
+        println("Realizando pagamento")
+    }
+
 }
